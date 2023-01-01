@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chart.js example</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <!-- <body class="blurred"> -->
+    <body>
+        <section class="current container">
+            <div class="current-body">
+                <div class="current-left">
+                    <img
+                        src="icons/sun.svg"
+                        alt=""
+                        class="weather-icon large"
+                        data-current-icon
+                    />
+                    <p class="label large">
+                        <span data-current-temp>20</span>&deg;
+                    </p>
+                </div>
+                <div class="current-right">
+                    <p class="label">
+                        Max :
+                        <span style="float: right"
+                            ><span data-current-max>20</span>&deg;</span
+                        >
+                    </p>
+                    <p class="label">
+                        Min :
+                        <span style="float: right"
+                            ><span data-current-min>18</span>&deg;</span
+                        >
+                    </p>
+                    <p class="label">
+                        Wind :
+                        <span style="float: right"
+                            ><span data-current-wind>20</span
+                            ><span class="value-sub-info">Kph</span></span
+                        >
+                    </p>
+                    <p class="label">
+                        Precip :
+                        <span style="float: right"
+                            ><span data-current-precip>12</span
+                            ><span class="value-sub-info">mm</span></span
+                        >
+                    </p>
+                </div>
+            </div>
+            <div class="current-address">
+                <h2 class="label large" data-address>Daryaganj</h2>
+                <h3 class="label" data-current-day>Monday</h3>
+            </div>
+        </section>
+
+        <section class="hourly container">
+            <div class="hourly-main">
+                <div class="weather-chart">
+                    <canvas id="weatherChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <template id="day-card-template">
+            <div class="daily-day-card">
+                <p class="label small" style="font-weight: bold">
+                    <span data-day></span>
+                </p>
+                <img class="weather-icon" data-daily-icon />
+                <p class="label">
+                    <span data-day-temp-max>20</span>&deg; |
+                    <span data-day-temp-min>18</span>&deg;
+                </p>
+            </div>
+        </template>
+
+        <section class="daily container">
+            <div class="daily-main">
+                <div class="daily-day-card">
+                    <p class="label small">
+                        <span data-daily-day>Sunday</span>
+                    </p>
+                    <img
+                        src="icons/sun.svg"
+                        alt=""
+                        data-daily-icon
+                        class="weather-icon"
+                    />
+                    <p class="label">
+                        <span data-daily-max>20</span
+                        ><span class="value-sub-info">&deg;</span> |
+                        <span data-daily-min>18</span
+                        ><span class="value-sub-info">&deg;</span>
+                    </p>
+                </div>
+                <div class="daily-day-card">
+                    <p class="label small">
+                        <span data-daily-day>Monday</span>
+                    </p>
+                    <img
+                        src="icons/sun.svg"
+                        alt=""
+                        data-daily-icon
+                        class="weather-icon"
+                    />
+                    <p class="label">
+                        <span data-daily-max>20</span
+                        ><span class="value-sub-info">&deg;</span> |
+                        <span data-daily-min>18</span
+                        ><span class="value-sub-info">&deg;</span>
+                    </p>
+                </div>
+                <div class="daily-day-card">
+                    <p class="label small">
+                        <span data-daily-day>Tuesday</span>
+                    </p>
+                    <img
+                        src="icons/sun.svg"
+                        alt=""
+                        data-daily-icon
+                        class="weather-icon"
+                    />
+                    <p class="label">
+                        <span data-daily-max>20</span
+                        ><span class="value-sub-info">&deg;</span> |
+                        <span data-daily-min>18</span
+                        ><span class="value-sub-info">&deg;</span>
+                    </p>
+                </div>
+                <div class="daily-day-card">
+                    <p class="label small">
+                        <span data-daily-day>Wednesday</span>
+                    </p>
+                    <img
+                        src="icons/sun.svg"
+                        alt=""
+                        data-daily-icon
+                        class="weather-icon"
+                    />
+                    <p class="label">
+                        <span data-daily-max>20</span
+                        ><span class="value-sub-info">&deg;</span> |
+                        <span data-daily-min>18</span
+                        ><span class="value-sub-info">&deg;</span>
+                    </p>
+                </div>
+                <div class="daily-day-card">
+                    <p class="label small">
+                        <span data-daily-day>Thursday</span>
+                    </p>
+                    <img
+                        src="icons/sun.svg"
+                        alt=""
+                        data-daily-icon
+                        class="weather-icon"
+                    />
+                    <p class="label">
+                        <span data-daily-max>20</span
+                        ><span class="value-sub-info">&deg;</span> |
+                        <span data-daily-min>18</span
+                        ><span class="value-sub-info">&deg;</span>
+                    </p>
+                </div>
+                <div class="daily-day-card">
+                    <p class="label small">
+                        <span data-daily-day>Friday</span>
+                    </p>
+                    <img
+                        src="icons/sun.svg"
+                        alt=""
+                        data-daily-icon
+                        class="weather-icon"
+                    />
+                    <p class="label">
+                        <span data-daily-max>20</span
+                        ><span class="value-sub-info">&deg;</span> |
+                        <span data-daily-min>18</span
+                        ><span class="value-sub-info">&deg;</span>
+                    </p>
+                </div>
+                <div class="daily-day-card">
+                    <p class="label small">
+                        <span data-daily-day>Saturday</span>
+                    </p>
+                    <img
+                        src="icons/sun.svg"
+                        alt=""
+                        data-daily-icon
+                        class="weather-icon"
+                    />
+                    <p class="label">
+                        <span data-daily-max>20</span
+                        ><span class="value-sub-info">&deg;</span> |
+                        <span data-daily-min>18</span
+                        ><span class="value-sub-info">&deg;</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <script type="module" src="/src/main.js" defer></script>
+        <!-- <script type="module" src="/src/weatherChart.js" defer></script> -->
+    </body>
+</html>

@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    background-color: hsl(214, 31%, 26%);
+    font-family: "Montserrat", sans-serif;
+}
+body.blurred {
+    filter: blur(3px);
+    overflow: hidden;
+}
+.container {
+    margin: auto;
+    width: 80vw;
+    max-width: 800px;
+}
+
+.weather-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+.weather-icon.large {
+    width: 60px;
+    height: 60px;
+}
+.label {
+    color: hsl(0, 0%, 100%);
+    font-size: 1rem;
+}
+.label.large {
+    font-size: 2rem;
+}
+.label.small {
+    color: hsl(0, 0%, 90%);
+    font-size: 0.75rem;
+}
+.value-sub-info {
+    font-size: 0.75rem;
+}
+
+/* ============================== current section ============================== */
+
+.current {
+    display: flex;
+    justify-content: space-between;
+}
+.current-address {
+    padding-block: 1rem;
+    text-align: right;
+}
+
+.current-body {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+}
+.current-left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+.current-right {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+/* ===================================== hourly section ===================================== */
+
+.hourly-main {
+    padding-block: 1rem;
+}
+
+/* ===================================== daily section ====================================== */
+
+.daily-main {
+    margin-block: 1.5rem;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(auto-fit, 100px);
+    grid-auto-rows: 150px;
+    gap: 1rem;
+}
+.daily-day-card {
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: hsl(191, 21%, 50%);
+}
+
+@media (max-width: 600px) {
+    .current-address {
+        display: none;
+    }
+}
+@media (max-width: 450px) {
+    .current-body {
+        gap: 0.5rem;
+        flex-direction: column;
+    }
+}
